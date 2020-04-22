@@ -75,8 +75,9 @@ const Home = () => {
 			<EventListener
 				target="document"
 				onKeyDown={(e) => {
-					console.log(e.code);
-					shortcut(e, list, show, index, setShow, setReady, setPlaying, setIndex, dispatch(setList(30)));
+					shortcut(e, list, show, index, setShow, setReady, setPlaying, setIndex, () => {
+						dispatch(setList(30));
+					});
 				}}
 				onMouseLeave={() => {
 					hoverLeave();

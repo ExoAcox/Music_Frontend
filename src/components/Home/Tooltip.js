@@ -3,7 +3,7 @@ import React from "react";
 const Tooltip = ({ hover }) => {
 	return (
 		<div id="hover_tooltip">
-			<img src={hover.image} />
+			<img src={hover.image || ""} />
 			<span>{hover.artist}</span>
 			<span>{hover.album}</span>
 			<span>

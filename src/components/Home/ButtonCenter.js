@@ -18,9 +18,9 @@ const ButtonCenter = ({ show, hide }) => {
 				}}>
 				Shuffle
 			</button>
-			<div className="shortcut" style={{ display: hover ? "block" : "none" }}>
+			{/* <div className="shortcut" style={{ display: hover ? "block" : "none" }}>
 				<span>Shortcut ENTER key</span>
-			</div>
+			</div> */}
 		</div>
 	);
 };

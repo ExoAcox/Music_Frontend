@@ -18,11 +18,11 @@ const ButtonRight = ({ playing, setShow }) => {
 			<span>{playing.artist_name}</span>
 			<span>{playing.album_name}</span>
 			{playing ? <img src={urlImg + playing.album_id + ".jpg"} /> : <></>}
-			<div className="shortcut" style={{ display: hover ? "block" : "none" }}>
+			{/* <div className="shortcut" style={{ display: hover ? "block" : "none" }}>
 				<span>Open Sidebar: SPACE key</span>
 				<span>Prev Album: LEFT ARROW key</span>
 				<span>Next Album: RIGHT ARROW key</span>
-			</div>
+			</div> */}
 		</div>
 	);
 };

@@ -80,23 +80,22 @@ body {
 		background-image: linear-gradient(to top, rgba(20, 20, 20, 0.75), rgba(0, 0, 0, 0));
 	}
 }
-#music_player button {
-	button {
-		position: absolute;
-		top: 50%;
-		cursor: pointer;
-		height: 70%;
-		width: 200px;
-		border-radius: 15px;
-		outline: none;
-		border: none;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		&:active {
-			animation: pulsate 0.2s ease-in-out both;
-		}
+#music_player .center button {
+	position: absolute;
+	top: 50%;
+	cursor: pointer;
+	height: 70%;
+	width: 200px;
+	border-radius: 15px;
+	outline: none;
+	border: none;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	&:active {
+		animation: pulsate 0.2s ease-in-out both;
 	}
 }
+
 @keyframes pulsate {
 	0% {
 		transform: translate(-50%, -50%) scale(1);
@@ -152,18 +151,51 @@ body {
 	transform: translateY(-50%);
 	font-size: 24px;
 	font-weight: bold;
-}
-#music_player .center {
-	.shortcut {
+	.menu {
 		position: absolute;
-		width: 200px;
-		height: 70px;
-		top: -70px;
-		left: 50%;
-		transform: translate(-50%);
-		background-color: salmon;
+		bottom: 60px;
+		left: -220px;
+		@for $i from 0 through 6 {
+			.list:nth-child(#{$i + 1}) {
+				transition: 0.12s (0.48s - $i * 0.12);
+			}
+		}
+		.list {
+			position: relative;
+			width: 200px;
+			height: 50px;
+			left: 0;
+			background-color: black;
+			text-align: center;
+			line-height: 50px;
+			margin: 10px 0;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			box-shadow: 1px 1px 3px 1px rgba(255, 255, 255, 0.1);
+			cursor: pointer;
+			&.show {
+				left: 210px;
+			}
+			span {
+				position: relative;
+				top: 0;
+			}
+		}
+		.blank {
+			position: absolute;
+			display: none;
+			width: 220px !important;
+			top: 10px !important;
+			height: 100%;
+			background-color: transparent;
+			&.show {
+				display: grid;
+				left: 200px;
+			}
+		}
 	}
 }
+
 #music_sidebar {
 	position: fixed;
 	width: 100%;

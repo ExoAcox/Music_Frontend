@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-const ButtonLeft = ({ show, setShow, hide }) => {
+const ButtonLeft = ({ hide }) => {
+	const [show, setShow] = useState(false);
 	const time = useSelector((state) => state.album.time);
 	const [countdown, setCountdown] = useState(0);
 
@@ -30,7 +31,7 @@ const ButtonLeft = ({ show, setShow, hide }) => {
 				}}>
 				Menu
 			</span>
-			<div id="menu_button">
+			<div className="menu">
 				<div className={show ? "blank show" : "blank"}></div>
 				<div className={show ? "list show" : "list"}>
 					<span>Next</span>
