@@ -4,12 +4,14 @@ import { Provider } from "react-redux";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
 import store from "./redux/store";
-import Home from "./pages/Home";
+import Player from "./pages/Player";
+import Login from "./pages/Login";
 
 const Router = () => {
 	return (
 		<BrowserRouter>
-			<Route path="/" exact component={Home} />
+			<Route path="/" exact component={Player} />
+			<Route path="/login" exact component={Login} />
 		</BrowserRouter>
 	);
 };

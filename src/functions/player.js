@@ -6,6 +6,7 @@ export const resize = (setHeight, setWidth) => {
 	setHeight(window.innerHeight - 80);
 	const count = Math.floor(window.innerWidth / 150);
 	const leftover = window.innerWidth - count * 150;
+
 	if (leftover <= 50) {
 		setWidth(150 + leftover / count);
 	} else {

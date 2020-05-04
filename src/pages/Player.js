@@ -2,26 +2,26 @@ import React, { useState, useEffect } from "react";
 import EventListener from "react-event-listener";
 import { useSelector, useDispatch } from "react-redux";
 import { setList } from "../redux/actions/album";
-import { resize, shortcut, hoverEvent, hoverLeave, hoverTouch } from "../functions/home";
-import Card from "../components/Home/Card";
-import Player from "../components/Home/Player";
-import Sidebar from "../components/Home/Sidebar.js";
-import Tooltip from "../components/Home/Tooltip";
+import { resize, shortcut, hoverEvent, hoverLeave } from "../functions/player";
+import Card from "../components/Player/Card";
+import Player from "../components/Player/Player";
+import Sidebar from "../components/Player/Sidebar";
+import Tooltip from "../components/Player/Tooltip";
 
 // const url = "http://127.0.0.1:9999/api/album";
 // const urlImg = "http://127.0.0.1:9999/public/img/cover/";
 
 const Home = () => {
 	const list = useSelector((state) => state.album.list); // list all card
-	const [playing, setPlaying] = useState(list[0] || { playing_id: null }); // selected card
+	const [playing, setPlaying] = useState({}); // selected card
 	const [show, setShow] = useState(false); // state for hiden div
 	const [ready, setReady] = useState(true); //
 	const [width, setWidth] = useState(0); // width of card
 	const [hover, setHover] = useState(list[0]); // on hover card info
 	const [index, setIndex] = useState(0); // index of card
 	const [height, setHeight] = useState(window.innerHeight); // height of card container
-	const time = useSelector((state) => state.album.time); // time t	o refresh card
-	const listReady = useSelector((state) => state.album.ready); // card fetching status
+	const time = useSelector((state) => state.album.time); // time to refresh card
+	// const listReady = useSelector((state) => state.album.ready); // card fetching status
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -38,12 +38,18 @@ const Home = () => {
 		resize(setHeight, setWidth);
 	}, []);
 
+	useEffect(() => {
+		setPlaying(list[0]);
+		setHover(list[0]);
+	}, [list]);
+
 	const cardList = [];
 	list.forEach((x, i) => {
 		cardList.push(
 			<Card
 				card={x}
 				index={i}
+				key={i}
 				width={width}
 				setReady={() => {
 					setReady(false);
@@ -82,14 +88,11 @@ const Home = () => {
 				onMouseLeave={() => {
 					hoverLeave();
 				}}
-				onTouchStart={() => {
-					hoverTouch();
-				}}
 			/>
 			<div id="card_con">{cardList}</div>
 			<div className={show ? "blank show" : "blank"} onClick={() => setShow(false)} />
 			<Sidebar
-				url={playing.itunes_url}
+				url={playing?.itunes_url}
 				show={show}
 				height={height}
 				ready={ready}
@@ -108,7 +111,7 @@ const Home = () => {
 					setShow(show ? false : true);
 				}}
 			/>
-			<Tooltip hover={hover} />
+			<Tooltip hover={hover || false} />
 		</div>
 	);
 };

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import { usePalette } from "react-palette";
+import { isMobile } from "react-device-detect";
 import ButtonCenter from "./ButtonCenter";
 import ButtonLeft from "./ButtonLeft";
 import ButtonRight from "./ButtonRight";
@@ -8,7 +9,7 @@ import ButtonRight from "./ButtonRight";
 const urlImg = "http://127.0.0.1:9999/public/img/cover/";
 
 const Player = ({ playing, hide, show, setShow }) => {
-	const color = usePalette(urlImg + playing.album_id + ".jpg").data.darkVibrant; // cover art color
+	const color = usePalette(urlImg + playing?.album_id + ".jpg").data.darkVibrant; // cover art color
 
 	return (
 		<div id="music_player" style={{ backgroundColor: color }}>
@@ -21,12 +22,16 @@ const Player = ({ playing, hide, show, setShow }) => {
 					hide();
 				}}
 			/>
-			<ButtonCenter
-				show={show}
-				hide={() => {
-					hide();
-				}}
-			/>
+			{isMobile ? (
+				""
+			) : (
+				<ButtonCenter
+					show={show}
+					hide={() => {
+						hide();
+					}}
+				/>
+			)}
 			<ButtonRight playing={playing} setShow={setShow} />
 		</div>
 	);

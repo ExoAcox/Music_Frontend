@@ -153,8 +153,8 @@ body {
 	font-weight: bold;
 	.menu {
 		position: absolute;
-		bottom: 60px;
-		left: -220px;
+		bottom: 54px;
+		left: -230px;
 		@for $i from 0 through 6 {
 			.list:nth-child(#{$i + 1}) {
 				transition: 0.12s (0.48s - $i * 0.12);
@@ -174,7 +174,7 @@ body {
 			box-shadow: 1px 1px 3px 1px rgba(255, 255, 255, 0.1);
 			cursor: pointer;
 			&.show {
-				left: 210px;
+				left: 220px;
 			}
 			span {
 				position: relative;
