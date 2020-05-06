@@ -6,12 +6,15 @@ import { PersistGate } from "redux-persist/integration/react";
 import store from "./redux/store";
 import Player from "./pages/Player";
 import Login from "./pages/Login";
+import Auth from "./pages/Auth";
 
 const Router = () => {
 	return (
 		<BrowserRouter>
 			<Route path="/" exact component={Player} />
 			<Route path="/login" exact component={Login} />
+			<Route path="/auth/:provider" exact component={Auth} />
+			{/* <Route path="/auth/facebook" exact component={Auth} /> */}
 		</BrowserRouter>
 	);
 };

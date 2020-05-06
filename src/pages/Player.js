@@ -27,13 +27,13 @@ const Home = () => {
 	useEffect(() => {
 		// Check redux and time countdown
 		if (list.length < 1) {
-			dispatch(setList(30));
+			dispatch(setList(50));
 		} else if (!time) {
-			dispatch(setList(30));
+			dispatch(setList(50));
 		} else if (time + 86400000 <= Date.now()) {
-			dispatch(setList(30));
+			dispatch(setList(50));
 		} else if (time - 300000 >= Date.now()) {
-			dispatch(setList(30));
+			dispatch(setList(50));
 		}
 		resize(setHeight, setWidth);
 	}, []);
@@ -82,7 +82,7 @@ const Home = () => {
 				target="document"
 				onKeyDown={(e) => {
 					shortcut(e, list, show, index, setShow, setReady, setPlaying, setIndex, () => {
-						dispatch(setList(30));
+						dispatch(setList(50));
 					});
 				}}
 				onMouseLeave={() => {
@@ -101,7 +101,7 @@ const Home = () => {
 				}}
 			/>
 			<Player
-				event={() => dispatch(setList(30))}
+				event={() => dispatch(setList(50))}
 				playing={playing}
 				show={show}
 				hide={() => {
