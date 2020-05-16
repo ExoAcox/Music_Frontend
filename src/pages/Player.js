@@ -8,8 +8,8 @@ import Player from "../components/Player/Player";
 import Sidebar from "../components/Player/Sidebar";
 import Tooltip from "../components/Player/Tooltip";
 
-// const url = "http://127.0.0.1:9999/api/album";
-// const urlImg = "http://127.0.0.1:9999/public/img/cover/";
+// const url = process.env.BASE_URL + "/api/album";
+// const urlImg = process.env.BASE_URL + "/public/img/cover/";
 
 const Home = () => {
 	const list = useSelector((state) => state.album.list); // list all card

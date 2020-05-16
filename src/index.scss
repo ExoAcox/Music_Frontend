@@ -1,229 +1,240 @@
 // ============= TEMPLATE ============= //
 
 @mixin full {
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 @mixin center {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 // ============= COLOR ============= //
 
 $primary: #040404;
 $secondary: #202020;
+$default: whitesmoke;
 
-// ============= DEFAULT ============= //
+// ============= IMPORT ============= //
 
+@import "styles/home/index";
+
+// ============= DEFAULT =============//
+
+* {
+  box-sizing: border-box;
+}
 body {
-	margin: 0px;
+  margin: 0px;
 }
 
 // ============= STYLING ============= //
 
 #home_con {
-	@include full;
-	position: fixed;
-	background-color: $primary;
-	overflow: auto;
-	padding-bottom: 80px;
-	box-sizing: border-box;
-	.blank {
-		position: fixed;
-		width: 0;
-		height: 0;
-		background-color: rgba(0, 0, 0, 0.75);
-		&.show {
-			top: 0;
-			width: 100%;
-			height: 100%;
-		}
-	}
-	&::-webkit-scrollbar {
-		width: 0;
-	}
+  @include full;
+  position: fixed;
+  background-color: $primary;
+  padding-bottom: 80px;
+  box-sizing: border-box;
+  .blank {
+    position: fixed;
+    width: 0;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    &.show {
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
 #card_con {
-	height: fit-content;
-	display: flex;
-	flex-flow: row wrap;
+  height: fit-content;
+  display: flex;
+  flex-flow: row wrap;
 }
 #card_con .card {
-	cursor: pointer;
-	.cardImage {
-		width: 100%;
-		height: auto;
-		user-select: none;
-		filter: grayscale(100%);
-		&:hover {
-			filter: grayscale(0);
-		}
-	}
+  cursor: pointer;
+  .cardImage {
+    width: 100%;
+    height: auto;
+    user-select: none;
+    filter: grayscale(100%);
+    &:hover {
+      filter: grayscale(0);
+    }
+  }
 }
 #music_player {
-	position: fixed;
-	width: 100%;
-	height: 80px;
-	bottom: 0;
-	background-color: $secondary;
-	color: white;
-	transition: 0.5s;
-	&::before {
-		content: "";
-		position: absolute;
-		top: -5px;
-		width: 100%;
-		height: 5px;
-		background-image: linear-gradient(to top, rgba(20, 20, 20, 0.75), rgba(0, 0, 0, 0));
-	}
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  bottom: 0;
+  background-color: $secondary;
+  color: white;
+  transition: 0.5s;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    width: 100%;
+    height: 5px;
+    background-image: linear-gradient(
+      to top,
+      rgba(20, 20, 20, 0.75),
+      rgba(0, 0, 0, 0)
+    );
+  }
 }
 #music_player .center button {
-	position: absolute;
-	top: 50%;
-	cursor: pointer;
-	height: 70%;
-	width: 200px;
-	border-radius: 15px;
-	outline: none;
-	border: none;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	&:active {
-		animation: pulsate 0.2s ease-in-out both;
-	}
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  height: 70%;
+  width: 200px;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  &:active {
+    animation: pulsate 0.2s ease-in-out both;
+  }
 }
 
 @keyframes pulsate {
-	0% {
-		transform: translate(-50%, -50%) scale(1);
-	}
-	50% {
-		transform: translate(-50%, -50%) scale(0.8);
-	}
-	100% {
-		transform: translate(-50%, -50%) scale(1);
-	}
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 #music_player .right {
-	position: absolute;
-	top: 50%;
-	cursor: pointer;
-	white-space: nowrap;
-	height: 60px;
-	right: 20px;
-	transform: translateY(-50%);
-	span {
-		position: absolute;
-		&:nth-child(1) {
-			top: 5px;
-			right: 75px;
-		}
-		&:nth-child(2) {
-			font-weight: bold;
-			bottom: 5px;
-			right: 75px;
-		}
-	}
-	img {
-		position: relative;
-		top: 0;
-		width: 60px;
-		height: 60px;
-		border-radius: 5px;
-	}
-	.shortcut {
-		position: absolute;
-		width: 200px;
-		height: 70px;
-		top: -80px;
-		right: 0;
-		background-color: salmon;
-	}
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  white-space: nowrap;
+  height: 60px;
+  right: 20px;
+  transform: translateY(-50%);
+  span {
+    position: absolute;
+    &:nth-child(1) {
+      top: 5px;
+      right: 75px;
+    }
+    &:nth-child(2) {
+      font-weight: bold;
+      bottom: 5px;
+      right: 75px;
+    }
+  }
+  img {
+    position: relative;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+  }
+  .shortcut {
+    position: absolute;
+    width: 200px;
+    height: 70px;
+    top: -80px;
+    right: 0;
+    background-color: salmon;
+  }
 }
 #music_player .left {
-	position: absolute;
-	top: 50%;
-	cursor: pointer;
-	left: 20px;
-	transform: translateY(-50%);
-	font-size: 24px;
-	font-weight: bold;
-	.menu {
-		position: absolute;
-		bottom: 54px;
-		left: -230px;
-		@for $i from 0 through 6 {
-			.list:nth-child(#{$i + 1}) {
-				transition: 0.12s (0.48s - $i * 0.12);
-			}
-		}
-		.list {
-			position: relative;
-			width: 200px;
-			height: 50px;
-			left: 0;
-			background-color: black;
-			text-align: center;
-			line-height: 50px;
-			margin: 10px 0;
-			letter-spacing: 2px;
-			text-transform: uppercase;
-			box-shadow: 1px 1px 3px 1px rgba(255, 255, 255, 0.1);
-			cursor: pointer;
-			&.show {
-				left: 220px;
-			}
-			span {
-				position: relative;
-				top: 0;
-			}
-		}
-		.blank {
-			position: absolute;
-			display: none;
-			width: 220px !important;
-			top: 10px !important;
-			height: 100%;
-			background-color: transparent;
-			&.show {
-				display: grid;
-				left: 200px;
-			}
-		}
-	}
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  left: 20px;
+  transform: translateY(-50%);
+  font-size: 24px;
+  font-weight: bold;
+  .menu {
+    position: absolute;
+    bottom: 54px;
+    left: -230px;
+    @for $i from 0 through 6 {
+      .list:nth-child(#{$i + 1}) {
+        transition: 0.12s (0.48s - $i * 0.12);
+      }
+    }
+    .list {
+      position: relative;
+      width: 200px;
+      height: 50px;
+      left: 0;
+      background-color: black;
+      text-align: center;
+      line-height: 50px;
+      margin: 10px 0;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      box-shadow: 1px 1px 3px 1px rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      &.show {
+        left: 220px;
+      }
+      span {
+        position: relative;
+        top: 0;
+      }
+    }
+    .blank {
+      position: absolute;
+      display: none;
+      width: 220px !important;
+      top: 10px !important;
+      height: 100%;
+      background-color: transparent;
+      &.show {
+        display: grid;
+        left: 200px;
+      }
+    }
+  }
 }
 
 #music_sidebar {
-	position: fixed;
-	width: 100%;
-	max-width: 400px;
-	top: 0;
-	right: -400px;
-	transition: right 0.5s;
-	background-color: white;
+  position: fixed;
+  width: 100%;
+  max-width: 400px;
+  top: 0;
+  right: -400px;
+  transition: right 0.5s;
+  background-color: white;
 }
 #music_sidebar.show {
-	right: 0;
+  right: 0;
 }
 #hover_tooltip {
-	display: none;
-	position: fixed;
-	width: 200px;
-	background-color: #fff;
-	border-radius: 5px;
-	padding: 5px;
-	box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.3);
-	text-align: center;
-	transition: 0.1s top;
-	span {
-		display: block;
-		margin: 7px 3px;
-		font-weight: bold;
-	}
-	img {
-		width: 100%;
-	}
+  display: none;
+  position: fixed;
+  width: 200px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: 0.1s top;
+  span {
+    display: block;
+    margin: 7px 3px;
+    font-weight: bold;
+  }
+  img {
+    width: 100%;
+  }
 }

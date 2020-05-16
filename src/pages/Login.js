@@ -2,7 +2,7 @@ import React from "react";
 import * as queryString from "query-string";
 
 const googleParams = queryString.stringify({
-	client_id: "771932229138-pp83dvmajdaifokt4q2bt019vm0uhd1f.apps.googleusercontent.com",
+	client_id: process.env.GOOGLE_ID,
 	redirect_uri: "https://127.0.0.1:8080/auth/google",
 	scope: ["https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/userinfo.profile"].join(" "), // space separated string
 	response_type: "token",
@@ -10,8 +10,8 @@ const googleParams = queryString.stringify({
 	prompt: "consent",
 });
 const facebookParams = queryString.stringify({
-	client_id: "163421345090345",
-	redirect_uri: "http://localhost:8080/auth/facebook",
+	client_id: process.env.FACEBOOK_ID,
+	redirect_uri: "https://localhost:8080/auth/facebook",
 	scope: ["email"].join(","), // comma separated string
 	response_type: "code",
 	auth_type: "rerequest",

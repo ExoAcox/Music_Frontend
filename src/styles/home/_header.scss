@@ -1,0 +1,25 @@
+.header {
+  position: fixed;
+  z-index: 10;
+  height: 40px;
+  right: 0;
+  padding: 20px;
+  font-size: 1.5em;
+  width: 100%;
+  transition: 0.2s;
+  background-color: transparent;
+  &.show {
+    background-color: $primary;
+  }
+}
+.header .menu-con {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  width: fit-content;
+  .menu {
+    display: inline-block;
+    line-height: 40px;
+    margin: 0 10px;
+  }
+}

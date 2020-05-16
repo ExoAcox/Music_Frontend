@@ -1,0 +1,28 @@
+.right {
+  position: relative;
+}
+.right svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 8vw;
+}
+.right .navigator {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 50px 50px;
+  align-items: center;
+  padding-left: 3vw;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+  background-color: blueviolet;
+  text-align: center;
+}
+.right .prev-winner {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const urlImg = "http://127.0.0.1:9999/public/img/cover/";
+const urlImg = process.env.BASE_URL + "/public/img/cover/";
 
 const ButtonRight = ({ playing, setShow }) => {
 	const [hover, setHover] = useState(false);

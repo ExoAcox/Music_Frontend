@@ -1,0 +1,29 @@
+.left {
+  position: relative;
+  padding: 20px;
+  background-color: salmon;
+  z-index: 2;
+}
+.left .record-info {
+  text-align: right;
+  position: relative;
+  right: -6.2vw;
+}
+.left .basic-info {
+  .title {
+    font-size: 4em;
+    font-weight: bold;
+  }
+  .artist {
+    font-size: 2em;
+  }
+}
+.left .preview {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+.left .last-update {
+  position: absolute;
+  bottom: 20px;
+}

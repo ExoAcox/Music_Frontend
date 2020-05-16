@@ -1,7 +1,7 @@
 import React from "react";
 import { isMobile } from "react-device-detect";
 
-const urlImg = "http://127.0.0.1:9999/public/img/cover/";
+const urlImg = process.env.BASE_URL + "/public/img/cover/";
 
 const Card = ({ card, index, width, setReady, setPlaying, setShow, setIndex }) => {
 	return (

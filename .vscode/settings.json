@@ -1,0 +1,6 @@
+{
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 120000,
+    "bracket-pair-colorizer-2.forceUniqueOpeningColor": true,
+    "setting-backup.path": "/home/yuju/vscode-settings.zip"
+}

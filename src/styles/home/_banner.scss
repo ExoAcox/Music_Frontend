@@ -1,0 +1,51 @@
+.banner {
+  color: $primary;
+  overflow: hidden;
+  position: relative;
+
+  @import "slider";
+}
+.banner .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+
+  &.left {
+    left: 20px;
+  }
+  &.right {
+    right: 20px;
+  }
+}
+.banner .button-con {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
+
+  .button {
+    display: inline-block;
+    margin: 0 10px;
+    width: 6px;
+    cursor: pointer;
+    &:hover .tooltip {
+      display: block;
+    }
+    &.show {
+      color: wheat;
+    }
+
+    .tooltip {
+      width: 80px;
+      height: 50px;
+      position: absolute;
+      text-align: center;
+      line-height: 50px;
+      background-color: #fff;
+      color: black;
+      transform: translate(-37px, -60px);
+      display: none;
+    }
+  }
+}
