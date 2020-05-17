@@ -1,0 +1,21 @@
+#menu {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  animation: show-menu 0.5s;
+  transition: 0.5s;
+
+  &.hide {
+    opacity: 0;
+  }
+
+  @keyframes show-menu {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

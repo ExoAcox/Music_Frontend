@@ -4,6 +4,12 @@
   background-color: salmon;
   z-index: 2;
 }
+.left .menu {
+  position: absolute;
+  font-size: 1.5em;
+  cursor: pointer;
+  z-index: 3;
+}
 .left .record-info {
   text-align: right;
   position: relative;
