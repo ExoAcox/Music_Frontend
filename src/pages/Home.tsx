@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { example } from "../recoil/atom";
 import Menu from "./Menu";
 import Left from "../components/Home/Left";
 import Right from "../components/Home/Right";
@@ -28,17 +30,20 @@ const Home = () => {
         },
     });
     const [pos, setPos] = useState(0);
-    const [bg, setBg] = useState(false);
-    const [menu, setMenu] = useState(false);
+    const [bg, setBg] = useState(true);
+    const [menu, setMenu] = useState(true);
     const [preview, setPreview] = useState(false);
+    const [one, setOne] = useRecoilState(example);
 
     const hideMenu = () => {
         setMenu(false);
         setTimeout(() => setBg(false), 300);
+        setOne(one + "a");
     };
     const showMenu = () => {
         setBg(!bg);
-        setTimeout(() => setMenu(true), 1000);
+        setTimeout(() => setMenu(true), 1200);
+        console.log(one);
     };
 
     const menu_bg: JSX.Element[] = [];
@@ -51,7 +56,7 @@ const Home = () => {
             <Left data={data} showMenu={showMenu} />
             <Right data={data} pos={pos} setPos={(e: number) => setPos(e)} />
             {menu_bg}
-            {menu ? <Menu hideMenu={hideMenu} hide={menu} /> : <></>}
+            {menu ? <Menu hideMenu={hideMenu} hide={!menu} /> : <></>}
             {preview ? <Preview url={data.itunes_url} /> : <></>}
         </div>
     );

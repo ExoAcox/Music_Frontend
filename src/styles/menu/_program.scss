@@ -1,0 +1,54 @@
+.program {
+  grid-row: span 2;
+  display: flex;
+  flex-flow: row wrap;
+  align-content: space-around;
+  justify-content: center;
+  animation: show-program 1s forwards;
+  transition: 1s;
+
+  @keyframes show-program {
+    from {
+      transform: translateY(10vh);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+.program .card-con {
+  width: 200px;
+  opacity: 1;
+  margin: 10px;
+  transform: translateY(0);
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 12vh;
+  }
+}
+.program .card {
+  position: absolute;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  transition: 2s, 0.7s top, 0.7s left;
+  width: 200px;
+  height: 12vh;
+  background-color: salmon;
+  right: 0;
+  top: 0;
+
+  &.hide {
+    opacity: 0;
+    transform: translateY(10vw);
+  }
+  &.zoom {
+    top: 100px;
+    left: 100px;
+  }
+}

@@ -1,9 +1,13 @@
 import React from "react";
+import Header from "../components/Menu/Header";
+import Program from "../components/Menu/Program";
 
 const Menu = ({ hide, hideMenu }: Props) => {
     return (
-        <div id="menu" className={!hide && "hide"} onClick={hideMenu}>
-            Menu nih
+        <div id="menu" className={hide ? "hide" : ""}>
+            <Header hideMenu={hideMenu} />
+            <Program />
+            <div>Main</div>
         </div>
     );
 };

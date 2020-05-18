@@ -1,7 +1,11 @@
 #menu {
   position: fixed;
+  display: grid;
+  grid-template-columns: 1fr 0.6fr;
+  grid-template-rows: 0.1fr 1.2fr;
   width: 100vw;
   height: 100vh;
+  padding: 10px;
   z-index: 3;
   animation: show-menu 0.5s;
   transition: 0.5s;
@@ -18,4 +22,7 @@
       opacity: 1;
     }
   }
+
+  @import "header";
+  @import "program";
 }
